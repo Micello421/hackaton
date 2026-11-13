@@ -1,0 +1,15 @@
+Skopiuj do nowego taska w Kandev (repo: hackaton):
+
+---
+Zadanie: [OPISZ MVP / CO ZBUDOWAĆ]
+
+Wymagania:
+- działające MVP, proste uruchomienie
+- README z komendami startu
+
+Na koniec OBOWIĄZKOWO:
+1) commit
+2) push brancha na origin
+3) otwórz / zaktualizuj Pull Request do main
+4) w odpowiedzi podaj: link PR, nazwę brancha, jak uruchomić, co przetestowałeś
+---
