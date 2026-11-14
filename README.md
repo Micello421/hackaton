@@ -1,29 +1,23 @@
-# Hackaton
+# Hackaton — Lord Duszkiewicz
 
-Repo na hakaton — kod robi agent na PC w domu (Kandev), Ty sterujesz telefonem, tu ściągasz wynik.
+Satyryczna strona o bogactwie **Wielkiego Lorda Wielkiego Pana Duszkiewicza** z herbu Rudej Wiewióry.
 
-## Szybki start (drugi komputer / hakaton)
+## Uruchomienie
 
-```bash
-git clone https://github.com/Micello421/hackaton.git
-cd hackaton
-git fetch
-git checkout <branch-z-taska>
-```
-
-Albo po merge do `main`:
+Statyczna strona — bez builda i zależności:
 
 ```bash
-git pull
+# Windows
+start index.html
+
+# albo lokalny serwer
+npx --yes serve .
 ```
 
-## Sterowanie z telefonu
+Albo otwórz `index.html` w przeglądarce.
 
-1. Tailscale ON  
-2. https://desktop-ocvn3n1.tail714de0.ts.net/  
-3. Nowy task → wybierz repo **hackaton**  
-4. W opisie dopisz: *commit, push, otwórz PR, podaj link*
+## Pliki
 
-## Status
-
-Starter pusty — wrzuć pierwszy task z telefonu (np. „zrób MVP …”).
+- `index.html` — treść i herb SVG
+- `styles.css` — layout i animacje
+- `script.js` — liczniki fortuny
