@@ -1,18 +1,21 @@
-Skopiuj do taska w Kandev (repo: hackaton). Wybierz agenta: Claude / Codex / Gemini / Cursor / Antigravity.
+Wklej jako treść taska w Kandev. Repo: **hackaton**. Agent: Claude Default (albo Codex). Executor: Local.
 
 ---
-Zadanie: [OPISZ MVP]
+Zadanie: [OPISZ CO ZBUDOWAĆ]
 
-Zasady dysku (WAŻNE):
-- Pracuj w tym repo na D: — nie zapisuj ciężkich plików na C:
-- Po testach usuń lokalne node_modules/build/cache jeśli nie są potrzebne w git
-- NIE commituj node_modules, .env, modeli, dużych binarek
+GIT (obowiązkowe):
+1. Nowy branch od origin/main: task/<opis>-<suffix>
+2. Po każdym większym etapie: commit + push
+3. Na koniec: otwórz/zaktualizuj PR do main
+4. W odpowiedzi podaj link PR + branch + jak uruchomić + testy
+5. Napisz READY TO ARCHIVE
 
-Na koniec OBOWIĄZKOWO:
-1) commit + push brancha
-2) otwórz/zaktualizuj Pull Request do main
-3) podaj: link PR, branch, jak uruchomić, wynik testów
-4) napisz "READY TO ARCHIVE" — wtedy użytkownik archiwizuje task (czyści worktree)
+Zespół ściąga tak:
+  git clone https://github.com/Micello421/hackaton.git
+  git fetch && git checkout <branch>
 
-Auto: nie pytaj o zatwierdzenia narzędzi jeśli możesz kontynuować.
+Zasady:
+- Nie pytaj o zatwierdzenia narzędzi jeśli możesz iść dalej
+- Nie commituj .env / node_modules / dużych binarek
+- Pracuj na D:\DUPA\hackaton
 ---

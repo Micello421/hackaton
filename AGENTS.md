@@ -1,36 +1,55 @@
-# Hackaton — agenci + dysk (mało miejsca na C:)
+# Hackaton — reguły dla agenta (Kandev)
 
-Dane Kandev i temp są na **D:** (`D:\kandev-home`, `D:\temp-kandev`). Repo: `D:\DUPA\hackaton`.
+Repo: `https://github.com/Micello421/hackaton`  
+Lokalnie: `D:\DUPA\hackaton`  
+Cel: zespół na hakatonie sprawdza wynik przez `git fetch` / `git pull`, bez dostępu do PC.
 
-## Agenci dostępni na tym PC
-- Claude Code (`claude`)
-- Codex (`codex`)
-- Gemini CLI (`gemini`)
-- Cursor Agent (`agent`)
-- Antigravity (zainstalowany lokalnie)
+## Obowiązkowy workflow gita (KAŻDY większy task)
 
-W Kandev: Settings → Agents → dla każdego profilu włącz **Auto-approve all permissions**.
-
-## Executor
-Preferuj **Local** (praca w `D:\DUPA\hackaton`) albo Worktree na D:.  
-Unikaj kopiowania ciężkich rzeczy na C:.
-
-## Obowiązkowy koniec każdego taska
-1. Commit + push brancha + PR na `https://github.com/Micello421/hackaton`
-2. W odpowiedzi: link PR, branch, jak uruchomić, wynik testów
-3. **Nie zostawiaj śmieci lokalnie**: usuń `node_modules`, buildy, cache w worktree jeśli powstały tylko do testu
-4. Po udanym pushu użytkownik **Archive** taska w Kandev → czyści worktree
-
-## Zakazane
-- Duże pliki / modele / datasetty na dysku
-- Commit `.env`, sekretów, `node_modules`
-- Zostawianie worktree po skończonej pracy (archive po push)
+1. Na starcie: `git fetch origin` i pracuj na **nowym branchu** od `origin/main`.
+   - Nazwa: `task/<krotki-opis>-<3-4-znaki>` (np. `task/login-mvp-a7k2`)
+   - Nie commituj bezpośrednio na `main`.
+2. Po sensownym etapie (działający kawałek / naprawiony bug / gotowa sekcja):
+   - `git add` tylko potrzebne pliki
+   - `git commit -m "..."` z jasnym opisem *dlaczego*
+   - `git push -u origin HEAD`
+3. Gdy task jest gotowy do review zespołu:
+   - otwórz / zaktualizuj **Pull Request** do `main`
+   - w odpowiedzi podaj **link PR**, nazwę brancha, jak uruchomić, wynik testów
+4. Kolejne większe polecenie w tym samym tasku = **kolejny commit** (nie jeden gigantyczny na końcu).
+   - Jeśli zmiana jest nowym tematem → nowy branch + nowy PR.
 
 ## Szablon odpowiedzi końcowej
+
 ```
-PR: <url>
-Branch: <name>
-Run: <commands>
-Tests: <ok/fail>
-Cleanup: pushed; ready to archive
+PR: https://github.com/Micello421/hackaton/pull/N
+Branch: task/...
+Clone/check:
+  git clone https://github.com/Micello421/hackaton.git
+  cd hackaton
+  git fetch
+  git checkout <branch>
+Run: <komendy>
+Tests: ok/fail
+READY TO ARCHIVE
 ```
+
+## Dysk i bezpieczeństwo
+
+- Pracuj na `D:` — nie zaśmiecaj `C:`.
+- Nie commituj: `.env`, sekrety, `node_modules`, buildy, modele, duże binarki.
+- Po testach posprzątaj lokalne cache/`node_modules` jeśli nie są w git.
+- Auto-approve narzędzi: kontynuuj bez zbędnych pytań, gdy to bezpieczne.
+
+## Role (wybór agenta w Kandev)
+
+| Agent | Kiedy |
+|-------|--------|
+| **Claude Default** | główny builder MVP (preferowany) |
+| **Codex GPT / 6 Luna** | szybkie poprawki, skrypty, backend |
+| **Cursor Auto** | UI / refaktor w stylu Cursor |
+| **Copilot** | drobne łatki, gdy inne zajęte |
+| **Antigravity** | tylko po zalogowaniu Google (zamiennik Gemini) |
+| **Gemini** | NIE używać — wyłączony przez Google |
+
+Nie używaj równolegle wielu agentów na tym samym pliku bez uzgodnienia — kolizje merge.
